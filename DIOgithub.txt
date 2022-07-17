@@ -20,6 +20,7 @@ comandos git
 - git commit -m "comentario que quer"
 - git status - ver status dos arquivos, se foram commitados, deletados, etc
 - git remote add origin(convenção) url que apareceu quando criou repositório
+- git push origin main(a branche que quer mandar)
 se rolar problema com merge:
 - git pull origin master - puxa conteudo pra ver o que aconteceu
 - muda o arquivo do jeito que quer
