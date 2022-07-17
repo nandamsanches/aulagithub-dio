@@ -1,0 +1,47 @@
+GITHUB
+
+COMANDOS:
+windows x linux
+dir = ls 
+cls = clear
+echo hello > hello.txt (o '>' direciona o fluxo pra criar um arquivo)
+del (so windows e so apaga o arquivo)
+rmdir = rm -rf
+ls -a - mostra arquivos ocultos
+mv "arquivo que quer" "pra qual lugar quer mover"
+
+comandos git
+- ssh - conexão segura com a outra ponta
+- git init - criando repositório dentro da pasta que está (cria um .git que é uma pasta oculta)
+- git config --global user.email "emailaqui" >> config do github
+- git config --global user.name seunome >> config do github
+- (se quiser mudar algo eh git config --global --unset user.blabla)
+- git add - coloca um * se quiser todas os arquivos 
+- git commit -m "comentario que quer"
+- git status - ver status dos arquivos, se foram commitados, deletados, etc
+- git remote add origin(convenção) url que apareceu quando criou repositório
+se rolar problema com merge:
+- git pull origin master - puxa conteudo pra ver o que aconteceu
+- muda o arquivo do jeito que quer
+- da git push de novo
+
+FUNCIONAMENTO GIT:
+blob - armazena metadados e faz sha1 do arquivo
+tree - armazena/aponta para as blobs (ou até outras árvores) e faz sha1 dos metadados dos blobs
+commit - junta tudo e também possui sha1 de tudo
+
+GERAR CHAVE SSH PARA ENVIAR COISAS DO GIT PARA GITHUB:
+no gitbash
+1)ssh-keygen -t ed25519(nome da chave que ta gerando) -c email preferencialmente o que ta no git 
+2) caso não mude estará na pasta >> /c/Users/blablabla/.ssh/id_ed25519 >> terá a chave privada e a publica(.pub) 
+3)cat id_ed25519.pub
+4)a pública é a que insere no github >> clica na foto do perfil ->settings->ssh and gpg keys->add new key
+5)de novo no git bash >> eval $(ssh-agent -s)
+6)ssh-add id_ed25519 >> passando a frase privada pra saber qual é que vai usar pra descriptografar
+ps: pra fazer o clone quando tem a chave ssh cadastrada, tem que baixar pelo link do ssh, nao vai funcionar mais pelo link normal:
+exemplo:  git clone "link ssh do projeto"
+
+GERAR TOKEN PESSOAL CASO NAO QUEIRA LIGAR O SSH AQUELA MAQUINA:
+1)settings->developer settings->personal access token->generate new token
+2)copia o token em algum lugar seguro, pq github não mostra mais ele
+3)se clonar pelo https vai pedir o token de acesso pessoal
